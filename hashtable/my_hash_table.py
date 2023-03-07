@@ -3,7 +3,7 @@ from linked_list import *
 
 class MyHashTable:
     def __init__(self):
-        self.capacity = 10
+        self.capacity = 30
         self.items: LinkedList = [None] * self.capacity
         self.size = 0
 
@@ -46,6 +46,16 @@ class MyHashTable:
         if result:
             self.size -= 1
 
+    def getItem(self, key):
+        bucket = self.__calculate_bucket(key)
+        
+        print('self.items[bucket]', self.items[bucket])
+        if self.items[bucket] == None: return None
+
+        linkedList: LinkedList = self.items[bucket]
+
+        return linkedList.getItem(key)
+
     def show(self):
         print(self.items)
         for item in self.items:
@@ -54,9 +64,15 @@ class MyHashTable:
 
 
 s = MyHashTable()
-for i in range(20):
+for i in range(25):
     s.put(i, i * 100)
-s.show()
+# s.show()
 
-s.delete(17)
-s.show()
+# s.delete(17)
+# s.show()
+element_found = s.getItem(20)
+if (element_found != None):
+    print(element_found.id)
+    print(element_found.value)
+else:
+    print('Item não encontrado!')

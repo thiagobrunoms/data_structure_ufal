@@ -1,6 +1,6 @@
 class ListNode:
     def __init__(self, key: int, value, next=None):
-        self.id = int(key),
+        self.id = key
         self.value = value
         self.next = next
 
@@ -77,6 +77,17 @@ class LinkedList:
             current = current.next
 
         return False
+    
+    def getItem(self, key):
+        if (self.head != None and self.head.id == key):
+            return self.head
+        
+        current = self.head.next
+        while (current != None):
+            if (current.id == key): return current
+            current = current.next
+
+        return None
 
     def show(self):
         current = self.head
