@@ -1,3 +1,5 @@
+
+#Essa versão é mais simples: não possui estratégia de resizing ou outras features (remover elemento)
 class Hashtable:
     def __init__(self, size):
         self.size = size
