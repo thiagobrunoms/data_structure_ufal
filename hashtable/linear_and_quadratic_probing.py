@@ -13,7 +13,7 @@ class Hashtable:
             if self.keys[index] == key:
                 return self.values[index]
             i += 1
-            index = (self.hash(key) + i) % self.size
+            index = (self.hash(key) + i) % self.size #use i ** 2 for quadratic probin
         raise KeyError(key)
         
     def __setitem__(self, key, value):
@@ -24,7 +24,7 @@ class Hashtable:
                 self.values[index] = value
                 return
             i += 1
-            index = (self.hash(key) + i) % self.size
+            index = (self.hash(key) + i) % self.size #use i ** 2 for quadratic probin
         self.keys[index] = key
         self.values[index] = value
         
